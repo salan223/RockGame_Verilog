@@ -1,0 +1,18 @@
+Fitter Status : Successful - Thu Nov 28 19:48:33 2024
+Quartus Prime Version : 23.1std.1 Build 993 05/14/2024 SC Lite Edition
+Revision Name : RockShooter
+Top-level Entity Name : DE10_LITE_Golden_Top
+Family : MAX 10
+Device : 10M50DAF484C6GES
+Timing Models : Preliminary
+Total logic elements : 1,276 / 49,760 ( 3 % )
+    Total combinational functions : 1,262 / 49,760 ( 3 % )
+    Dedicated logic registers : 208 / 49,760 ( < 1 % )
+Total registers : 208
+Total pins : 185 / 360 ( 51 % )
+Total virtual pins : 0
+Total memory bits : 0 / 1,677,312 ( 0 % )
+Embedded Multiplier 9-bit elements : 4 / 288 ( 1 % )
+Total PLLs : 0 / 4 ( 0 % )
+UFM blocks : 0 / 1 ( 0 % )
+ADC blocks : 0 / 2 ( 0 % )

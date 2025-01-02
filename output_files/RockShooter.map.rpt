@@ -1,0 +1,924 @@
+Analysis & Synthesis report for RockShooter
+Thu Nov 28 19:48:21 2024
+Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis DSP Block Usage Summary
+  9. Registers Removed During Synthesis
+ 10. Removed Registers Triggering Further Register Optimizations
+ 11. General Register Statistics
+ 12. Inverted Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Parameter Settings for Inferred Entity Instance: game:game_inst|bullet:ro1|lpm_mult:Mult0
+ 15. Parameter Settings for Inferred Entity Instance: game:game_inst|bullet:ro1|lpm_mult:Mult1
+ 16. Parameter Settings for Inferred Entity Instance: game:game_inst|rock:a1|lpm_divide:Mod0
+ 17. Parameter Settings for Inferred Entity Instance: game:game_inst|rock:a1|lpm_divide:Mod1
+ 18. lpm_mult Parameter Settings by Entity Instance
+ 19. Port Connectivity Checks: "game:game_inst|rock:a1"
+ 20. Port Connectivity Checks: "game:game_inst|vga_sync:v1"
+ 21. Port Connectivity Checks: "clock_divider:clk_div"
+ 22. Post-Synthesis Netlist Statistics for Top Partition
+ 23. Elapsed Time Per Partition
+ 24. Analysis & Synthesis Messages
+ 25. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2024  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++-------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                        ;
++------------------------------------+------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Thu Nov 28 19:48:21 2024          ;
+; Quartus Prime Version              ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
+; Revision Name                      ; RockShooter                                    ;
+; Top-level Entity Name              ; DE10_LITE_Golden_Top                           ;
+; Family                             ; MAX 10                                         ;
+; Total logic elements               ; 1,272                                          ;
+;     Total combinational functions  ; 1,262                                          ;
+;     Dedicated logic registers      ; 208                                            ;
+; Total registers                    ; 208                                            ;
+; Total pins                         ; 185                                            ;
+; Total virtual pins                 ; 0                                              ;
+; Total memory bits                  ; 0                                              ;
+; Embedded Multiplier 9-bit elements ; 4                                              ;
+; Total PLLs                         ; 0                                              ;
+; UFM blocks                         ; 0                                              ;
+; ADC blocks                         ; 0                                              ;
++------------------------------------+------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                ;
++------------------------------------------------------------------+----------------------+--------------------+
+; Option                                                           ; Setting              ; Default Value      ;
++------------------------------------------------------------------+----------------------+--------------------+
+; Device                                                           ; 10M50DAF484C6GES     ;                    ;
+; Top-level entity name                                            ; DE10_LITE_Golden_Top ; RockShooter        ;
+; Family name                                                      ; MAX 10               ; Cyclone V          ;
+; Use smart compilation                                            ; Off                  ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                   ; On                 ;
+; Enable compact report table                                      ; Off                  ; Off                ;
+; Restructure Multiplexers                                         ; Auto                 ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                  ; Off                ;
+; Preserve fewer node names                                        ; On                   ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable               ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001         ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993            ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto                 ; Auto               ;
+; Safe State Machine                                               ; Off                  ; Off                ;
+; Extract Verilog State Machines                                   ; On                   ; On                 ;
+; Extract VHDL State Machines                                      ; On                   ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                  ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000                 ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                  ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                   ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                   ; On                 ;
+; Parallel Synthesis                                               ; On                   ; On                 ;
+; DSP Block Balancing                                              ; Auto                 ; Auto               ;
+; NOT Gate Push-Back                                               ; On                   ; On                 ;
+; Power-Up Don't Care                                              ; On                   ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                  ; Off                ;
+; Remove Duplicate Registers                                       ; On                   ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                  ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                  ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                  ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                  ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                  ; Off                ;
+; Ignore SOFT Buffers                                              ; On                   ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                  ; Off                ;
+; Optimization Technique                                           ; Balanced             ; Balanced           ;
+; Carry Chain Length                                               ; 70                   ; 70                 ;
+; Auto Carry Chains                                                ; On                   ; On                 ;
+; Auto Open-Drain Pins                                             ; On                   ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                  ; Off                ;
+; Auto ROM Replacement                                             ; On                   ; On                 ;
+; Auto RAM Replacement                                             ; On                   ; On                 ;
+; Auto DSP Block Replacement                                       ; On                   ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto                 ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto                 ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                   ; On                 ;
+; Strict RAM Replacement                                           ; Off                  ; Off                ;
+; Allow Synchronous Control Signals                                ; On                   ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                  ; Off                ;
+; Auto RAM Block Balancing                                         ; On                   ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                  ; Off                ;
+; Auto Resource Sharing                                            ; Off                  ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                  ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                  ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                  ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                   ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                  ; Off                ;
+; Timing-Driven Synthesis                                          ; On                   ; On                 ;
+; Report Parameter Settings                                        ; On                   ; On                 ;
+; Report Source Assignments                                        ; On                   ; On                 ;
+; Report Connectivity Checks                                       ; On                   ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                  ; Off                ;
+; Synchronization Register Chain Length                            ; 2                    ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation   ; Normal compilation ;
+; HDL message level                                                ; Level2               ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                  ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000                 ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000                 ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                  ; 100                ;
+; Clock MUX Protection                                             ; On                   ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                  ; Off                ;
+; Block Design Naming                                              ; Auto                 ; Auto               ;
+; SDC constraint protection                                        ; Off                  ; Off                ;
+; Synthesis Effort                                                 ; Auto                 ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                   ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                  ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium               ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto                 ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                   ; On                 ;
++------------------------------------------------------------------+----------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
++----------------------------+-------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                      ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                  ; Library ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------+---------+
+; DE10_LITE_Golden_Top.v           ; yes             ; User Verilog HDL File        ; C:/RockShooterProject/DE10_LITE_Golden_Top.v                                  ;         ;
+; rockBlasterBullet.v              ; yes             ; User Verilog HDL File        ; C:/RockShooterProject/rockBlasterBullet.v                                     ;         ;
+; mainGame.v                       ; yes             ; User Verilog HDL File        ; C:/RockShooterProject/mainGame.v                                              ;         ;
+; gameStateAndScore.v              ; yes             ; User Verilog HDL File        ; C:/RockShooterProject/gameStateAndScore.v                                     ;         ;
+; VGAandRender.v                   ; yes             ; User Verilog HDL File        ; C:/RockShooterProject/VGAandRender.v                                          ;         ;
+; lpm_mult.tdf                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/lpm_mult.tdf        ;         ;
+; aglobal231.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/aglobal231.inc      ;         ;
+; lpm_add_sub.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/lpm_add_sub.inc     ;         ;
+; multcore.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/multcore.inc        ;         ;
+; bypassff.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/bypassff.inc        ;         ;
+; altshift.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altshift.inc        ;         ;
+; db/mult_fgs.tdf                  ; yes             ; Auto-Generated Megafunction  ; C:/RockShooterProject/db/mult_fgs.tdf                                         ;         ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/lpm_divide.tdf      ;         ;
+; abs_divider.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/abs_divider.inc     ;         ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/sign_div_unsign.inc ;         ;
+; db/lpm_divide_0ml.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/RockShooterProject/db/lpm_divide_0ml.tdf                                   ;         ;
+; db/sign_div_unsign_vlh.tdf       ; yes             ; Auto-Generated Megafunction  ; C:/RockShooterProject/db/sign_div_unsign_vlh.tdf                              ;         ;
+; db/alt_u_div_8ie.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/RockShooterProject/db/alt_u_div_8ie.tdf                                    ;         ;
+; db/add_sub_t3c.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/RockShooterProject/db/add_sub_t3c.tdf                                      ;         ;
+; db/add_sub_u3c.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/RockShooterProject/db/add_sub_u3c.tdf                                      ;         ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                                           ;
++---------------------------------------------+-----------------------------------------+
+; Resource                                    ; Usage                                   ;
++---------------------------------------------+-----------------------------------------+
+; Estimated Total logic elements              ; 1,272                                   ;
+;                                             ;                                         ;
+; Total combinational functions               ; 1262                                    ;
+; Logic element usage by number of LUT inputs ;                                         ;
+;     -- 4 input functions                    ; 285                                     ;
+;     -- 3 input functions                    ; 407                                     ;
+;     -- <=2 input functions                  ; 570                                     ;
+;                                             ;                                         ;
+; Logic elements by mode                      ;                                         ;
+;     -- normal mode                          ; 618                                     ;
+;     -- arithmetic mode                      ; 644                                     ;
+;                                             ;                                         ;
+; Total registers                             ; 208                                     ;
+;     -- Dedicated logic registers            ; 208                                     ;
+;     -- I/O registers                        ; 0                                       ;
+;                                             ;                                         ;
+; I/O pins                                    ; 185                                     ;
+;                                             ;                                         ;
+; Embedded Multiplier 9-bit elements          ; 4                                       ;
+;                                             ;                                         ;
+; Maximum fan-out node                        ; game:game_inst|clock_divider:c1|clk_1ms ;
+; Maximum fan-out                             ; 144                                     ;
+; Total fan-out                               ; 4421                                    ;
+; Average fan-out                             ; 2.31                                    ;
++---------------------------------------------+-----------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                                                                    ;
++----------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+----------------------------------------------------------------------------------------------------------------------------------------------+----------------------+--------------+
+; Compilation Hierarchy Node                   ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                                                                          ; Entity Name          ; Library Name ;
++----------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+----------------------------------------------------------------------------------------------------------------------------------------------+----------------------+--------------+
+; |DE10_LITE_Golden_Top                        ; 1262 (2)            ; 208 (0)                   ; 0           ; 0          ; 4            ; 0       ; 2         ; 185  ; 0            ; 0          ; |DE10_LITE_Golden_Top                                                                                                                        ; DE10_LITE_Golden_Top ; work         ;
+;    |game:game_inst|                          ; 1260 (0)            ; 208 (0)                   ; 0           ; 0          ; 4            ; 0       ; 2         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|game:game_inst                                                                                                         ; game                 ; work         ;
+;       |blaster:s1|                           ; 60 (60)             ; 10 (10)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|game:game_inst|blaster:s1                                                                                              ; blaster              ; work         ;
+;       |bullet:ro1|                           ; 116 (116)           ; 51 (51)                   ; 0           ; 0          ; 4            ; 0       ; 2         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|game:game_inst|bullet:ro1                                                                                              ; bullet               ; work         ;
+;          |lpm_mult:Mult0|                    ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 2            ; 0       ; 1         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|game:game_inst|bullet:ro1|lpm_mult:Mult0                                                                               ; lpm_mult             ; work         ;
+;             |mult_fgs:auto_generated|        ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 2            ; 0       ; 1         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|game:game_inst|bullet:ro1|lpm_mult:Mult0|mult_fgs:auto_generated                                                       ; mult_fgs             ; work         ;
+;          |lpm_mult:Mult1|                    ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 2            ; 0       ; 1         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|game:game_inst|bullet:ro1|lpm_mult:Mult1                                                                               ; lpm_mult             ; work         ;
+;             |mult_fgs:auto_generated|        ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 2            ; 0       ; 1         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|game:game_inst|bullet:ro1|lpm_mult:Mult1|mult_fgs:auto_generated                                                       ; mult_fgs             ; work         ;
+;       |clock_divider:c1|                     ; 44 (44)             ; 28 (28)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|game:game_inst|clock_divider:c1                                                                                        ; clock_divider        ; work         ;
+;       |game_state:comb_3|                    ; 3 (3)               ; 2 (2)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|game:game_inst|game_state:comb_3                                                                                       ; game_state           ; work         ;
+;       |render:r1|                            ; 108 (108)           ; 12 (12)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|game:game_inst|render:r1                                                                                               ; render               ; work         ;
+;       |rock:a1|                              ; 874 (448)           ; 82 (82)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|game:game_inst|rock:a1                                                                                                 ; rock                 ; work         ;
+;          |lpm_divide:Mod0|                   ; 213 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|game:game_inst|rock:a1|lpm_divide:Mod0                                                                                 ; lpm_divide           ; work         ;
+;             |lpm_divide_0ml:auto_generated|  ; 213 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|game:game_inst|rock:a1|lpm_divide:Mod0|lpm_divide_0ml:auto_generated                                                   ; lpm_divide_0ml       ; work         ;
+;                |sign_div_unsign_vlh:divider| ; 213 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|game:game_inst|rock:a1|lpm_divide:Mod0|lpm_divide_0ml:auto_generated|sign_div_unsign_vlh:divider                       ; sign_div_unsign_vlh  ; work         ;
+;                   |alt_u_div_8ie:divider|    ; 213 (213)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|game:game_inst|rock:a1|lpm_divide:Mod0|lpm_divide_0ml:auto_generated|sign_div_unsign_vlh:divider|alt_u_div_8ie:divider ; alt_u_div_8ie        ; work         ;
+;          |lpm_divide:Mod1|                   ; 213 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|game:game_inst|rock:a1|lpm_divide:Mod1                                                                                 ; lpm_divide           ; work         ;
+;             |lpm_divide_0ml:auto_generated|  ; 213 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|game:game_inst|rock:a1|lpm_divide:Mod1|lpm_divide_0ml:auto_generated                                                   ; lpm_divide_0ml       ; work         ;
+;                |sign_div_unsign_vlh:divider| ; 213 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|game:game_inst|rock:a1|lpm_divide:Mod1|lpm_divide_0ml:auto_generated|sign_div_unsign_vlh:divider                       ; sign_div_unsign_vlh  ; work         ;
+;                   |alt_u_div_8ie:divider|    ; 213 (213)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|game:game_inst|rock:a1|lpm_divide:Mod1|lpm_divide_0ml:auto_generated|sign_div_unsign_vlh:divider|alt_u_div_8ie:divider ; alt_u_div_8ie        ; work         ;
+;       |score:comb_4|                         ; 14 (14)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|game:game_inst|score:comb_4                                                                                            ; score                ; work         ;
+;       |vga_sync:v1|                          ; 41 (41)             ; 23 (23)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|game:game_inst|vga_sync:v1                                                                                             ; vga_sync             ; work         ;
++----------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+----------------------------------------------------------------------------------------------------------------------------------------------+----------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis DSP Block Usage Summary        ;
++---------------------------------------+-------------+
+; Statistic                             ; Number Used ;
++---------------------------------------+-------------+
+; Simple Multipliers (9-bit)            ; 0           ;
+; Simple Multipliers (18-bit)           ; 2           ;
+; Embedded Multiplier Blocks            ; --          ;
+; Embedded Multiplier 9-bit elements    ; 4           ;
+; Signed Embedded Multipliers           ; 2           ;
+; Unsigned Embedded Multipliers         ; 0           ;
+; Mixed Sign Embedded Multipliers       ; 0           ;
+; Variable Sign Embedded Multipliers    ; 0           ;
+; Dedicated Input Shift Register Chains ; 0           ;
++---------------------------------------+-------------+
+Note: number of Embedded Multiplier Blocks used is only available after a successful fit.
+
+
++----------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                           ;
++-------------------------------------------+--------------------------------------------------+
+; Register name                             ; Reason for Removal                               ;
++-------------------------------------------+--------------------------------------------------+
+; game:game_inst|blaster:s1|x_blaster[0]    ; Stuck at VCC due to stuck port data_in           ;
+; game:game_inst|blaster:s1|x_blaster[1]    ; Stuck at GND due to stuck port data_in           ;
+; game:game_inst|blaster:s1|x_blaster[2,3]  ; Stuck at VCC due to stuck port data_in           ;
+; game:game_inst|blaster:s1|x_blaster[4]    ; Stuck at GND due to stuck port data_in           ;
+; game:game_inst|blaster:s1|x_blaster[5]    ; Stuck at VCC due to stuck port data_in           ;
+; game:game_inst|blaster:s1|x_blaster[6..9] ; Stuck at GND due to stuck port data_in           ;
+; game:game_inst|render:r1|rgb_reg[1..3]    ; Merged with game:game_inst|render:r1|rgb_reg[0]  ;
+; game:game_inst|render:r1|rgb_reg[5..7]    ; Merged with game:game_inst|render:r1|rgb_reg[4]  ;
+; game:game_inst|render:r1|rgb_reg[9,11]    ; Merged with game:game_inst|render:r1|rgb_reg[10] ;
+; game:game_inst|rock:a1|gameOver[1..3]     ; Merged with game:game_inst|rock:a1|gameOver[0]   ;
+; game:game_inst|rock:a1|rock_x2[0]         ; Stuck at GND due to stuck port data_in           ;
+; game:game_inst|bullet:ro1|x_bullet[1]     ; Stuck at GND due to stuck port data_in           ;
+; game:game_inst|rock:a1|gameOver[4]        ; Stuck at GND due to stuck port data_in           ;
+; game:game_inst|render:r1|char_line[7]     ; Stuck at GND due to stuck port data_in           ;
+; game:game_inst|bullet:ro1|x_bullet[0]     ; Stuck at VCC due to stuck port data_in           ;
+; game:game_inst|clock_divider:c1|i[0]      ; Merged with game:game_inst|vga_sync:v1|pixel_reg ;
+; game:game_inst|rock:a1|scoreCounter[5]    ; Lost fanout                                      ;
+; Total Number of Removed Registers = 28    ;                                                  ;
++-------------------------------------------+--------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                    ;
++----------------------------------------+---------------------------+---------------------------------------------------------------------------+
+; Register name                          ; Reason for Removal        ; Registers Removed due to This Register                                    ;
++----------------------------------------+---------------------------+---------------------------------------------------------------------------+
+; game:game_inst|blaster:s1|x_blaster[0] ; Stuck at VCC              ; game:game_inst|rock:a1|gameOver[4], game:game_inst|bullet:ro1|x_bullet[0] ;
+;                                        ; due to stuck port data_in ;                                                                           ;
+; game:game_inst|blaster:s1|x_blaster[1] ; Stuck at GND              ; game:game_inst|bullet:ro1|x_bullet[1]                                     ;
+;                                        ; due to stuck port data_in ;                                                                           ;
++----------------------------------------+---------------------------+---------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 208   ;
+; Number of registers using Synchronous Clear  ; 48    ;
+; Number of registers using Synchronous Load   ; 57    ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 136   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------+
+; Inverted Register Statistics                      ;
++-----------------------------------------+---------+
+; Inverted Register                       ; Fan out ;
++-----------------------------------------+---------+
+; game:game_inst|rock:a1|lfsr1[15]        ; 3       ;
+; game:game_inst|rock:a1|lfsr1[13]        ; 5       ;
+; game:game_inst|rock:a1|lfsr1[12]        ; 4       ;
+; game:game_inst|rock:a1|lfsr1[10]        ; 4       ;
+; game:game_inst|rock:a1|lfsr1[8]         ; 4       ;
+; game:game_inst|rock:a1|lfsr1[7]         ; 5       ;
+; game:game_inst|rock:a1|lfsr1[4]         ; 5       ;
+; game:game_inst|rock:a1|lfsr1[3]         ; 5       ;
+; game:game_inst|rock:a1|lfsr1[2]         ; 4       ;
+; game:game_inst|rock:a1|lfsr1[0]         ; 2       ;
+; game:game_inst|rock:a1|lfsr2[15]        ; 3       ;
+; game:game_inst|rock:a1|lfsr2[14]        ; 5       ;
+; game:game_inst|rock:a1|lfsr2[12]        ; 5       ;
+; game:game_inst|rock:a1|lfsr2[11]        ; 4       ;
+; game:game_inst|rock:a1|lfsr2[9]         ; 4       ;
+; game:game_inst|rock:a1|lfsr2[8]         ; 4       ;
+; game:game_inst|rock:a1|lfsr2[6]         ; 5       ;
+; game:game_inst|rock:a1|lfsr2[4]         ; 5       ;
+; game:game_inst|rock:a1|lfsr2[3]         ; 6       ;
+; game:game_inst|rock:a1|lfsr2[1]         ; 4       ;
+; game:game_inst|rock:a1|lfsr2[0]         ; 2       ;
+; Total number of inverted registers = 21 ;         ;
++-----------------------------------------+---------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------+
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |DE10_LITE_Golden_Top|game:game_inst|render:r1|char_line[6]      ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |DE10_LITE_Golden_Top|game:game_inst|rock:a1|scoreCounter[3]     ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |DE10_LITE_Golden_Top|game:game_inst|rock:a1|rock_y1[8]          ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |DE10_LITE_Golden_Top|game:game_inst|rock:a1|rock_y2[5]          ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |DE10_LITE_Golden_Top|game:game_inst|blaster:s1|y_blaster[6]     ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |DE10_LITE_Golden_Top|game:game_inst|rock:a1|miss_rockCount[2]   ;
+; 5:1                ; 32 bits   ; 96 LEs        ; 32 LEs               ; 64 LEs                 ; Yes        ; |DE10_LITE_Golden_Top|game:game_inst|bullet:ro1|fire_counter[16] ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |DE10_LITE_Golden_Top|game:game_inst|bullet:ro1|x_bullet[7]      ;
+; 6:1                ; 10 bits   ; 40 LEs        ; 10 LEs               ; 30 LEs                 ; Yes        ; |DE10_LITE_Golden_Top|game:game_inst|rock:a1|rock_x1[3]          ;
+; 6:1                ; 9 bits    ; 36 LEs        ; 18 LEs               ; 18 LEs                 ; Yes        ; |DE10_LITE_Golden_Top|game:game_inst|rock:a1|rock_x2[9]          ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: game:game_inst|bullet:ro1|lpm_mult:Mult0 ;
++------------------------------------------------+----------+-------------------------------+
+; Parameter Name                                 ; Value    ; Type                          ;
++------------------------------------------------+----------+-------------------------------+
+; AUTO_CARRY_CHAINS                              ; ON       ; AUTO_CARRY                    ;
+; IGNORE_CARRY_BUFFERS                           ; OFF      ; IGNORE_CARRY                  ;
+; AUTO_CASCADE_CHAINS                            ; ON       ; AUTO_CASCADE                  ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF      ; IGNORE_CASCADE                ;
+; LPM_WIDTHA                                     ; 11       ; Untyped                       ;
+; LPM_WIDTHB                                     ; 11       ; Untyped                       ;
+; LPM_WIDTHP                                     ; 22       ; Untyped                       ;
+; LPM_WIDTHR                                     ; 22       ; Untyped                       ;
+; LPM_WIDTHS                                     ; 1        ; Untyped                       ;
+; LPM_REPRESENTATION                             ; SIGNED   ; Untyped                       ;
+; LPM_PIPELINE                                   ; 0        ; Untyped                       ;
+; LATENCY                                        ; 0        ; Untyped                       ;
+; INPUT_A_IS_CONSTANT                            ; NO       ; Untyped                       ;
+; INPUT_B_IS_CONSTANT                            ; NO       ; Untyped                       ;
+; USE_EAB                                        ; OFF      ; Untyped                       ;
+; MAXIMIZE_SPEED                                 ; 6        ; Untyped                       ;
+; DEVICE_FAMILY                                  ; MAX 10   ; Untyped                       ;
+; CARRY_CHAIN                                    ; MANUAL   ; Untyped                       ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT      ; TECH_MAPPER_APEX20K           ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO     ; Untyped                       ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0        ; Untyped                       ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0        ; Untyped                       ;
+; CBXI_PARAMETER                                 ; mult_fgs ; Untyped                       ;
+; INPUT_A_FIXED_VALUE                            ; Bx       ; Untyped                       ;
+; INPUT_B_FIXED_VALUE                            ; Bx       ; Untyped                       ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF      ; Untyped                       ;
++------------------------------------------------+----------+-------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: game:game_inst|bullet:ro1|lpm_mult:Mult1 ;
++------------------------------------------------+----------+-------------------------------+
+; Parameter Name                                 ; Value    ; Type                          ;
++------------------------------------------------+----------+-------------------------------+
+; AUTO_CARRY_CHAINS                              ; ON       ; AUTO_CARRY                    ;
+; IGNORE_CARRY_BUFFERS                           ; OFF      ; IGNORE_CARRY                  ;
+; AUTO_CASCADE_CHAINS                            ; ON       ; AUTO_CASCADE                  ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF      ; IGNORE_CASCADE                ;
+; LPM_WIDTHA                                     ; 11       ; Untyped                       ;
+; LPM_WIDTHB                                     ; 11       ; Untyped                       ;
+; LPM_WIDTHP                                     ; 22       ; Untyped                       ;
+; LPM_WIDTHR                                     ; 22       ; Untyped                       ;
+; LPM_WIDTHS                                     ; 1        ; Untyped                       ;
+; LPM_REPRESENTATION                             ; SIGNED   ; Untyped                       ;
+; LPM_PIPELINE                                   ; 0        ; Untyped                       ;
+; LATENCY                                        ; 0        ; Untyped                       ;
+; INPUT_A_IS_CONSTANT                            ; NO       ; Untyped                       ;
+; INPUT_B_IS_CONSTANT                            ; NO       ; Untyped                       ;
+; USE_EAB                                        ; OFF      ; Untyped                       ;
+; MAXIMIZE_SPEED                                 ; 6        ; Untyped                       ;
+; DEVICE_FAMILY                                  ; MAX 10   ; Untyped                       ;
+; CARRY_CHAIN                                    ; MANUAL   ; Untyped                       ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT      ; TECH_MAPPER_APEX20K           ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO     ; Untyped                       ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0        ; Untyped                       ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0        ; Untyped                       ;
+; CBXI_PARAMETER                                 ; mult_fgs ; Untyped                       ;
+; INPUT_A_FIXED_VALUE                            ; Bx       ; Untyped                       ;
+; INPUT_B_FIXED_VALUE                            ; Bx       ; Untyped                       ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF      ; Untyped                       ;
++------------------------------------------------+----------+-------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: game:game_inst|rock:a1|lpm_divide:Mod0 ;
++------------------------+----------------+-----------------------------------------------+
+; Parameter Name         ; Value          ; Type                                          ;
++------------------------+----------------+-----------------------------------------------+
+; LPM_WIDTHN             ; 16             ; Untyped                                       ;
+; LPM_WIDTHD             ; 9              ; Untyped                                       ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                       ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                       ;
+; LPM_PIPELINE           ; 0              ; Untyped                                       ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                       ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                       ;
+; CBXI_PARAMETER         ; lpm_divide_0ml ; Untyped                                       ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                       ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                       ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                    ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                  ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                  ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                ;
++------------------------+----------------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: game:game_inst|rock:a1|lpm_divide:Mod1 ;
++------------------------+----------------+-----------------------------------------------+
+; Parameter Name         ; Value          ; Type                                          ;
++------------------------+----------------+-----------------------------------------------+
+; LPM_WIDTHN             ; 16             ; Untyped                                       ;
+; LPM_WIDTHD             ; 9              ; Untyped                                       ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                       ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                       ;
+; LPM_PIPELINE           ; 0              ; Untyped                                       ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                       ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                       ;
+; CBXI_PARAMETER         ; lpm_divide_0ml ; Untyped                                       ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                       ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                       ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                    ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                  ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                  ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                ;
++------------------------+----------------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------+
+; lpm_mult Parameter Settings by Entity Instance                                   ;
++---------------------------------------+------------------------------------------+
+; Name                                  ; Value                                    ;
++---------------------------------------+------------------------------------------+
+; Number of entity instances            ; 2                                        ;
+; Entity Instance                       ; game:game_inst|bullet:ro1|lpm_mult:Mult0 ;
+;     -- LPM_WIDTHA                     ; 11                                       ;
+;     -- LPM_WIDTHB                     ; 11                                       ;
+;     -- LPM_WIDTHP                     ; 22                                       ;
+;     -- LPM_REPRESENTATION             ; SIGNED                                   ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                       ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                       ;
+;     -- USE_EAB                        ; OFF                                      ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                     ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                       ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                       ;
+; Entity Instance                       ; game:game_inst|bullet:ro1|lpm_mult:Mult1 ;
+;     -- LPM_WIDTHA                     ; 11                                       ;
+;     -- LPM_WIDTHB                     ; 11                                       ;
+;     -- LPM_WIDTHP                     ; 22                                       ;
+;     -- LPM_REPRESENTATION             ; SIGNED                                   ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                       ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                       ;
+;     -- USE_EAB                        ; OFF                                      ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                     ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                       ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                       ;
++---------------------------------------+------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "game:game_inst|rock:a1"                                                                                                                 ;
++--------------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------+
+; Port         ; Type   ; Severity ; Details                                                                                                                         ;
++--------------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------+
+; scoreCounter ; Output ; Warning  ; Output or bidir port (6 bits) is wider than the port expression (5 bits) it drives; bit(s) "scoreCounter[5..5]" have no fanouts ;
+; gameOver     ; Output ; Warning  ; Output or bidir port (6 bits) is wider than the port expression (5 bits) it drives; bit(s) "gameOver[5..5]" have no fanouts     ;
++--------------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "game:game_inst|vga_sync:v1"                                                                                                                    ;
++--------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                                                                                      ;
++--------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; reset  ; Input  ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
+; p_tick ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed.                                     ;
++--------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "clock_divider:clk_div"                                                                 ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                             ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; clk_1ms ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 185                         ;
+; cycloneiii_ff         ; 208                         ;
+;     ENA               ; 37                          ;
+;     ENA SCLR          ; 42                          ;
+;     ENA SLD           ; 57                          ;
+;     SCLR              ; 6                           ;
+;     plain             ; 66                          ;
+; cycloneiii_io_obuf    ; 71                          ;
+; cycloneiii_lcell_comb ; 1263                        ;
+;     arith             ; 644                         ;
+;         2 data inputs ; 269                         ;
+;         3 data inputs ; 375                         ;
+;     normal            ; 619                         ;
+;         0 data inputs ; 36                          ;
+;         1 data inputs ; 11                          ;
+;         2 data inputs ; 255                         ;
+;         3 data inputs ; 32                          ;
+;         4 data inputs ; 285                         ;
+; cycloneiii_mac_mult   ; 2                           ;
+; cycloneiii_mac_out    ; 2                           ;
+;                       ;                             ;
+; Max LUT depth         ; 24.90                       ;
+; Average LUT depth     ; 10.54                       ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:01     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
+    Info: Processing started: Thu Nov 28 19:48:13 2024
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off RockShooter -c RockShooter
+Info (125069): Default assignment values were changed in the current version of the Quartus Prime software -- changes to default assignments values are contained in file c:/intelfpga_lite/23.1std/quartus/bin64/assignment_defaults.qdf
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file de10_lite_golden_top.v
+    Info (12023): Found entity 1: DE10_LITE_Golden_Top File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 29
+Info (12021): Found 3 design units, including 3 entities, in source file rockblasterbullet.v
+    Info (12023): Found entity 1: rock File: C:/RockShooterProject/rockBlasterBullet.v Line: 2
+    Info (12023): Found entity 2: bullet File: C:/RockShooterProject/rockBlasterBullet.v Line: 149
+    Info (12023): Found entity 3: blaster File: C:/RockShooterProject/rockBlasterBullet.v Line: 215
+Info (12021): Found 2 design units, including 2 entities, in source file maingame.v
+    Info (12023): Found entity 1: clock_divider File: C:/RockShooterProject/mainGame.v Line: 1
+    Info (12023): Found entity 2: game File: C:/RockShooterProject/mainGame.v Line: 23
+Info (12021): Found 2 design units, including 2 entities, in source file gamestateandscore.v
+    Info (12023): Found entity 1: game_state File: C:/RockShooterProject/gameStateAndScore.v Line: 1
+    Info (12023): Found entity 2: score File: C:/RockShooterProject/gameStateAndScore.v Line: 31
+Info (12021): Found 2 design units, including 2 entities, in source file vgaandrender.v
+    Info (12023): Found entity 1: vga_sync File: C:/RockShooterProject/VGAandRender.v Line: 1
+    Info (12023): Found entity 2: render File: C:/RockShooterProject/VGAandRender.v Line: 98
+Critical Warning (10846): Verilog HDL Instantiation warning at mainGame.v(68): instance has no name File: C:/RockShooterProject/mainGame.v Line: 68
+Critical Warning (10846): Verilog HDL Instantiation warning at mainGame.v(70): instance has no name File: C:/RockShooterProject/mainGame.v Line: 70
+Info (12127): Elaborating entity "DE10_LITE_Golden_Top" for the top level hierarchy
+Warning (10034): Output port "DRAM_ADDR" at DE10_LITE_Golden_Top.v(46) has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 46
+Warning (10034): Output port "DRAM_BA" at DE10_LITE_Golden_Top.v(47) has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 47
+Warning (10034): Output port "HEX1" at DE10_LITE_Golden_Top.v(64) has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 64
+Warning (10034): Output port "HEX2" at DE10_LITE_Golden_Top.v(67) has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 67
+Warning (10034): Output port "HEX3" at DE10_LITE_Golden_Top.v(70) has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 70
+Warning (10034): Output port "HEX4" at DE10_LITE_Golden_Top.v(73) has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 73
+Warning (10034): Output port "HEX5" at DE10_LITE_Golden_Top.v(76) has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 76
+Warning (10034): Output port "LEDR" at DE10_LITE_Golden_Top.v(86) has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 86
+Warning (10034): Output port "DRAM_CAS_N" at DE10_LITE_Golden_Top.v(48) has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 48
+Warning (10034): Output port "DRAM_CKE" at DE10_LITE_Golden_Top.v(49) has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 49
+Warning (10034): Output port "DRAM_CLK" at DE10_LITE_Golden_Top.v(50) has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 50
+Warning (10034): Output port "DRAM_CS_N" at DE10_LITE_Golden_Top.v(51) has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 51
+Warning (10034): Output port "DRAM_LDQM" at DE10_LITE_Golden_Top.v(53) has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 53
+Warning (10034): Output port "DRAM_RAS_N" at DE10_LITE_Golden_Top.v(54) has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 54
+Warning (10034): Output port "DRAM_UDQM" at DE10_LITE_Golden_Top.v(55) has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 55
+Warning (10034): Output port "DRAM_WE_N" at DE10_LITE_Golden_Top.v(56) has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 56
+Warning (10034): Output port "GSENSOR_CS_N" at DE10_LITE_Golden_Top.v(105) has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 105
+Warning (10034): Output port "GSENSOR_SCLK" at DE10_LITE_Golden_Top.v(107) has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 107
+Info (12128): Elaborating entity "clock_divider" for hierarchy "clock_divider:clk_div" File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 142
+Warning (10230): Verilog HDL assignment warning at mainGame.v(17): truncated value with size 32 to match size of target (28) File: C:/RockShooterProject/mainGame.v Line: 17
+Info (12128): Elaborating entity "game" for hierarchy "game:game_inst" File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 155
+Info (12128): Elaborating entity "vga_sync" for hierarchy "game:game_inst|vga_sync:v1" File: C:/RockShooterProject/mainGame.v Line: 42
+Warning (10230): Verilog HDL assignment warning at VGAandRender.v(38): truncated value with size 32 to match size of target (1) File: C:/RockShooterProject/VGAandRender.v Line: 38
+Warning (10230): Verilog HDL assignment warning at VGAandRender.v(66): truncated value with size 32 to match size of target (10) File: C:/RockShooterProject/VGAandRender.v Line: 66
+Warning (10230): Verilog HDL assignment warning at VGAandRender.v(70): truncated value with size 32 to match size of target (10) File: C:/RockShooterProject/VGAandRender.v Line: 70
+Info (12128): Elaborating entity "render" for hierarchy "game:game_inst|render:r1" File: C:/RockShooterProject/mainGame.v Line: 47
+Warning (10030): Net "font_rom.data_a" at VGAandRender.v(117) has no driver or initial value, using a default initial value '0' File: C:/RockShooterProject/VGAandRender.v Line: 117
+Warning (10030): Net "font_rom.waddr_a" at VGAandRender.v(117) has no driver or initial value, using a default initial value '0' File: C:/RockShooterProject/VGAandRender.v Line: 117
+Warning (10030): Net "font_rom_win.data_a" at VGAandRender.v(162) has no driver or initial value, using a default initial value '0' File: C:/RockShooterProject/VGAandRender.v Line: 162
+Warning (10030): Net "font_rom_win.waddr_a" at VGAandRender.v(162) has no driver or initial value, using a default initial value '0' File: C:/RockShooterProject/VGAandRender.v Line: 162
+Warning (10030): Net "font_rom.we_a" at VGAandRender.v(117) has no driver or initial value, using a default initial value '0' File: C:/RockShooterProject/VGAandRender.v Line: 117
+Warning (10030): Net "font_rom_win.we_a" at VGAandRender.v(162) has no driver or initial value, using a default initial value '0' File: C:/RockShooterProject/VGAandRender.v Line: 162
+Info (12128): Elaborating entity "blaster" for hierarchy "game:game_inst|blaster:s1" File: C:/RockShooterProject/mainGame.v Line: 54
+Warning (10230): Verilog HDL assignment warning at rockBlasterBullet.v(243): truncated value with size 32 to match size of target (10) File: C:/RockShooterProject/rockBlasterBullet.v Line: 243
+Warning (10230): Verilog HDL assignment warning at rockBlasterBullet.v(245): truncated value with size 32 to match size of target (10) File: C:/RockShooterProject/rockBlasterBullet.v Line: 245
+Warning (10230): Verilog HDL assignment warning at rockBlasterBullet.v(251): truncated value with size 32 to match size of target (10) File: C:/RockShooterProject/rockBlasterBullet.v Line: 251
+Warning (10230): Verilog HDL assignment warning at rockBlasterBullet.v(255): truncated value with size 32 to match size of target (10) File: C:/RockShooterProject/rockBlasterBullet.v Line: 255
+Warning (10230): Verilog HDL assignment warning at rockBlasterBullet.v(260): truncated value with size 32 to match size of target (1) File: C:/RockShooterProject/rockBlasterBullet.v Line: 260
+Info (12128): Elaborating entity "rock" for hierarchy "game:game_inst|rock:a1" File: C:/RockShooterProject/mainGame.v Line: 60
+Warning (10230): Verilog HDL assignment warning at rockBlasterBullet.v(47): truncated value with size 32 to match size of target (10) File: C:/RockShooterProject/rockBlasterBullet.v Line: 47
+Warning (10230): Verilog HDL assignment warning at rockBlasterBullet.v(48): truncated value with size 32 to match size of target (10) File: C:/RockShooterProject/rockBlasterBullet.v Line: 48
+Warning (10230): Verilog HDL assignment warning at rockBlasterBullet.v(49): truncated value with size 32 to match size of target (10) File: C:/RockShooterProject/rockBlasterBullet.v Line: 49
+Warning (10230): Verilog HDL assignment warning at rockBlasterBullet.v(50): truncated value with size 32 to match size of target (10) File: C:/RockShooterProject/rockBlasterBullet.v Line: 50
+Warning (10230): Verilog HDL assignment warning at rockBlasterBullet.v(57): truncated value with size 32 to match size of target (5) File: C:/RockShooterProject/rockBlasterBullet.v Line: 57
+Warning (10230): Verilog HDL assignment warning at rockBlasterBullet.v(63): truncated value with size 32 to match size of target (10) File: C:/RockShooterProject/rockBlasterBullet.v Line: 63
+Warning (10230): Verilog HDL assignment warning at rockBlasterBullet.v(65): truncated value with size 32 to match size of target (10) File: C:/RockShooterProject/rockBlasterBullet.v Line: 65
+Warning (10230): Verilog HDL assignment warning at rockBlasterBullet.v(69): truncated value with size 32 to match size of target (10) File: C:/RockShooterProject/rockBlasterBullet.v Line: 69
+Warning (10230): Verilog HDL assignment warning at rockBlasterBullet.v(74): truncated value with size 32 to match size of target (5) File: C:/RockShooterProject/rockBlasterBullet.v Line: 74
+Warning (10230): Verilog HDL assignment warning at rockBlasterBullet.v(80): truncated value with size 32 to match size of target (10) File: C:/RockShooterProject/rockBlasterBullet.v Line: 80
+Warning (10230): Verilog HDL assignment warning at rockBlasterBullet.v(81): truncated value with size 32 to match size of target (10) File: C:/RockShooterProject/rockBlasterBullet.v Line: 81
+Warning (10230): Verilog HDL assignment warning at rockBlasterBullet.v(85): truncated value with size 32 to match size of target (10) File: C:/RockShooterProject/rockBlasterBullet.v Line: 85
+Warning (10230): Verilog HDL assignment warning at rockBlasterBullet.v(95): truncated value with size 32 to match size of target (6) File: C:/RockShooterProject/rockBlasterBullet.v Line: 95
+Warning (10230): Verilog HDL assignment warning at rockBlasterBullet.v(96): truncated value with size 32 to match size of target (10) File: C:/RockShooterProject/rockBlasterBullet.v Line: 96
+Warning (10230): Verilog HDL assignment warning at rockBlasterBullet.v(97): truncated value with size 32 to match size of target (10) File: C:/RockShooterProject/rockBlasterBullet.v Line: 97
+Warning (10230): Verilog HDL assignment warning at rockBlasterBullet.v(107): truncated value with size 32 to match size of target (6) File: C:/RockShooterProject/rockBlasterBullet.v Line: 107
+Warning (10230): Verilog HDL assignment warning at rockBlasterBullet.v(108): truncated value with size 32 to match size of target (10) File: C:/RockShooterProject/rockBlasterBullet.v Line: 108
+Warning (10230): Verilog HDL assignment warning at rockBlasterBullet.v(109): truncated value with size 32 to match size of target (10) File: C:/RockShooterProject/rockBlasterBullet.v Line: 109
+Info (12128): Elaborating entity "bullet" for hierarchy "game:game_inst|bullet:ro1" File: C:/RockShooterProject/mainGame.v Line: 65
+Warning (10230): Verilog HDL assignment warning at rockBlasterBullet.v(196): truncated value with size 32 to match size of target (10) File: C:/RockShooterProject/rockBlasterBullet.v Line: 196
+Info (12128): Elaborating entity "game_state" for hierarchy "game:game_inst|game_state:comb_3" File: C:/RockShooterProject/mainGame.v Line: 68
+Info (12128): Elaborating entity "score" for hierarchy "game:game_inst|score:comb_4" File: C:/RockShooterProject/mainGame.v Line: 70
+Critical Warning (127005): Memory depth (64) in the design file differs from memory depth (48) in the Memory Initialization File "C:/RockShooterProject/db/RockShooter.ram1_render_ecbf1663.hdl.mif" -- setting initial value for remaining addresses to 0
+Info (276014): Found 2 instances of uninferred RAM logic
+    Info (276013): RAM logic "game:game_inst|render:r1|font_rom_win" is uninferred because MIF is not supported for the selected family File: C:/RockShooterProject/VGAandRender.v Line: 162
+    Info (276013): RAM logic "game:game_inst|render:r1|font_rom" is uninferred because MIF is not supported for the selected family File: C:/RockShooterProject/VGAandRender.v Line: 117
+Info (278001): Inferred 4 megafunctions from design logic
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "game:game_inst|bullet:ro1|Mult0" File: C:/RockShooterProject/rockBlasterBullet.v Line: 206
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "game:game_inst|bullet:ro1|Mult1" File: C:/RockShooterProject/rockBlasterBullet.v Line: 206
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "game:game_inst|rock:a1|Mod0" File: C:/RockShooterProject/rockBlasterBullet.v Line: 65
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "game:game_inst|rock:a1|Mod1" File: C:/RockShooterProject/rockBlasterBullet.v Line: 81
+Info (12130): Elaborated megafunction instantiation "game:game_inst|bullet:ro1|lpm_mult:Mult0" File: C:/RockShooterProject/rockBlasterBullet.v Line: 206
+Info (12133): Instantiated megafunction "game:game_inst|bullet:ro1|lpm_mult:Mult0" with the following parameter: File: C:/RockShooterProject/rockBlasterBullet.v Line: 206
+    Info (12134): Parameter "LPM_WIDTHA" = "11"
+    Info (12134): Parameter "LPM_WIDTHB" = "11"
+    Info (12134): Parameter "LPM_WIDTHP" = "22"
+    Info (12134): Parameter "LPM_WIDTHR" = "22"
+    Info (12134): Parameter "LPM_WIDTHS" = "1"
+    Info (12134): Parameter "LPM_REPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "MAXIMIZE_SPEED" = "6"
+Info (12021): Found 1 design units, including 1 entities, in source file db/mult_fgs.tdf
+    Info (12023): Found entity 1: mult_fgs File: C:/RockShooterProject/db/mult_fgs.tdf Line: 29
+Info (12130): Elaborated megafunction instantiation "game:game_inst|rock:a1|lpm_divide:Mod0" File: C:/RockShooterProject/rockBlasterBullet.v Line: 65
+Info (12133): Instantiated megafunction "game:game_inst|rock:a1|lpm_divide:Mod0" with the following parameter: File: C:/RockShooterProject/rockBlasterBullet.v Line: 65
+    Info (12134): Parameter "LPM_WIDTHN" = "16"
+    Info (12134): Parameter "LPM_WIDTHD" = "9"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_0ml.tdf
+    Info (12023): Found entity 1: lpm_divide_0ml File: C:/RockShooterProject/db/lpm_divide_0ml.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_vlh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_vlh File: C:/RockShooterProject/db/sign_div_unsign_vlh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_8ie.tdf
+    Info (12023): Found entity 1: alt_u_div_8ie File: C:/RockShooterProject/db/alt_u_div_8ie.tdf Line: 27
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_t3c.tdf
+    Info (12023): Found entity 1: add_sub_t3c File: C:/RockShooterProject/db/add_sub_t3c.tdf Line: 23
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_u3c.tdf
+    Info (12023): Found entity 1: add_sub_u3c File: C:/RockShooterProject/db/add_sub_u3c.tdf Line: 23
+Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13039): The following bidirectional pins have no drivers
+    Warning (13040): bidirectional pin "DRAM_DQ[0]" has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 52
+    Warning (13040): bidirectional pin "DRAM_DQ[1]" has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 52
+    Warning (13040): bidirectional pin "DRAM_DQ[2]" has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 52
+    Warning (13040): bidirectional pin "DRAM_DQ[3]" has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 52
+    Warning (13040): bidirectional pin "DRAM_DQ[4]" has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 52
+    Warning (13040): bidirectional pin "DRAM_DQ[5]" has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 52
+    Warning (13040): bidirectional pin "DRAM_DQ[6]" has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 52
+    Warning (13040): bidirectional pin "DRAM_DQ[7]" has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 52
+    Warning (13040): bidirectional pin "DRAM_DQ[8]" has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 52
+    Warning (13040): bidirectional pin "DRAM_DQ[9]" has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 52
+    Warning (13040): bidirectional pin "DRAM_DQ[10]" has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 52
+    Warning (13040): bidirectional pin "DRAM_DQ[11]" has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 52
+    Warning (13040): bidirectional pin "DRAM_DQ[12]" has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 52
+    Warning (13040): bidirectional pin "DRAM_DQ[13]" has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 52
+    Warning (13040): bidirectional pin "DRAM_DQ[14]" has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 52
+    Warning (13040): bidirectional pin "DRAM_DQ[15]" has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 52
+    Warning (13040): bidirectional pin "GSENSOR_SDI" has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 108
+    Warning (13040): bidirectional pin "GSENSOR_SDO" has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 109
+    Warning (13040): bidirectional pin "ARDUINO_IO[0]" has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 114
+    Warning (13040): bidirectional pin "ARDUINO_IO[1]" has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 114
+    Warning (13040): bidirectional pin "ARDUINO_IO[2]" has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 114
+    Warning (13040): bidirectional pin "ARDUINO_IO[3]" has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 114
+    Warning (13040): bidirectional pin "ARDUINO_IO[4]" has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 114
+    Warning (13040): bidirectional pin "ARDUINO_IO[5]" has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 114
+    Warning (13040): bidirectional pin "ARDUINO_IO[6]" has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 114
+    Warning (13040): bidirectional pin "ARDUINO_IO[7]" has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 114
+    Warning (13040): bidirectional pin "ARDUINO_IO[8]" has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 114
+    Warning (13040): bidirectional pin "ARDUINO_IO[9]" has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 114
+    Warning (13040): bidirectional pin "ARDUINO_IO[10]" has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 114
+    Warning (13040): bidirectional pin "ARDUINO_IO[11]" has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 114
+    Warning (13040): bidirectional pin "ARDUINO_IO[12]" has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 114
+    Warning (13040): bidirectional pin "ARDUINO_IO[13]" has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 114
+    Warning (13040): bidirectional pin "ARDUINO_IO[14]" has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 114
+    Warning (13040): bidirectional pin "ARDUINO_IO[15]" has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 114
+    Warning (13040): bidirectional pin "ARDUINO_RESET_N" has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 115
+    Warning (13040): bidirectional pin "GPIO[0]" has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 122
+    Warning (13040): bidirectional pin "GPIO[1]" has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 122
+    Warning (13040): bidirectional pin "GPIO[2]" has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 122
+    Warning (13040): bidirectional pin "GPIO[3]" has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 122
+    Warning (13040): bidirectional pin "GPIO[4]" has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 122
+    Warning (13040): bidirectional pin "GPIO[5]" has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 122
+    Warning (13040): bidirectional pin "GPIO[6]" has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 122
+    Warning (13040): bidirectional pin "GPIO[7]" has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 122
+    Warning (13040): bidirectional pin "GPIO[8]" has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 122
+    Warning (13040): bidirectional pin "GPIO[9]" has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 122
+    Warning (13040): bidirectional pin "GPIO[10]" has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 122
+    Warning (13040): bidirectional pin "GPIO[11]" has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 122
+    Warning (13040): bidirectional pin "GPIO[12]" has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 122
+    Warning (13040): bidirectional pin "GPIO[13]" has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 122
+    Warning (13040): bidirectional pin "GPIO[14]" has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 122
+    Warning (13040): bidirectional pin "GPIO[15]" has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 122
+    Warning (13040): bidirectional pin "GPIO[16]" has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 122
+    Warning (13040): bidirectional pin "GPIO[17]" has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 122
+    Warning (13040): bidirectional pin "GPIO[18]" has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 122
+    Warning (13040): bidirectional pin "GPIO[19]" has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 122
+    Warning (13040): bidirectional pin "GPIO[20]" has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 122
+    Warning (13040): bidirectional pin "GPIO[21]" has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 122
+    Warning (13040): bidirectional pin "GPIO[22]" has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 122
+    Warning (13040): bidirectional pin "GPIO[23]" has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 122
+    Warning (13040): bidirectional pin "GPIO[24]" has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 122
+    Warning (13040): bidirectional pin "GPIO[25]" has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 122
+    Warning (13040): bidirectional pin "GPIO[26]" has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 122
+    Warning (13040): bidirectional pin "GPIO[27]" has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 122
+    Warning (13040): bidirectional pin "GPIO[28]" has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 122
+    Warning (13040): bidirectional pin "GPIO[29]" has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 122
+    Warning (13040): bidirectional pin "GPIO[30]" has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 122
+    Warning (13040): bidirectional pin "GPIO[31]" has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 122
+    Warning (13040): bidirectional pin "GPIO[32]" has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 122
+    Warning (13040): bidirectional pin "GPIO[33]" has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 122
+    Warning (13040): bidirectional pin "GPIO[34]" has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 122
+    Warning (13040): bidirectional pin "GPIO[35]" has no driver File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 122
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "DRAM_ADDR[0]" is stuck at GND File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 46
+    Warning (13410): Pin "DRAM_ADDR[1]" is stuck at GND File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 46
+    Warning (13410): Pin "DRAM_ADDR[2]" is stuck at GND File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 46
+    Warning (13410): Pin "DRAM_ADDR[3]" is stuck at GND File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 46
+    Warning (13410): Pin "DRAM_ADDR[4]" is stuck at GND File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 46
+    Warning (13410): Pin "DRAM_ADDR[5]" is stuck at GND File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 46
+    Warning (13410): Pin "DRAM_ADDR[6]" is stuck at GND File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 46
+    Warning (13410): Pin "DRAM_ADDR[7]" is stuck at GND File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 46
+    Warning (13410): Pin "DRAM_ADDR[8]" is stuck at GND File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 46
+    Warning (13410): Pin "DRAM_ADDR[9]" is stuck at GND File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 46
+    Warning (13410): Pin "DRAM_ADDR[10]" is stuck at GND File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 46
+    Warning (13410): Pin "DRAM_ADDR[11]" is stuck at GND File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 46
+    Warning (13410): Pin "DRAM_ADDR[12]" is stuck at GND File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 46
+    Warning (13410): Pin "DRAM_BA[0]" is stuck at GND File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 47
+    Warning (13410): Pin "DRAM_BA[1]" is stuck at GND File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 47
+    Warning (13410): Pin "DRAM_CAS_N" is stuck at GND File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 48
+    Warning (13410): Pin "DRAM_CKE" is stuck at GND File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 49
+    Warning (13410): Pin "DRAM_CLK" is stuck at GND File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 50
+    Warning (13410): Pin "DRAM_CS_N" is stuck at GND File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 51
+    Warning (13410): Pin "DRAM_LDQM" is stuck at GND File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 53
+    Warning (13410): Pin "DRAM_RAS_N" is stuck at GND File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 54
+    Warning (13410): Pin "DRAM_UDQM" is stuck at GND File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 55
+    Warning (13410): Pin "DRAM_WE_N" is stuck at GND File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 56
+    Warning (13410): Pin "HEX0[7]" is stuck at VCC File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 61
+    Warning (13410): Pin "HEX1[0]" is stuck at GND File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 64
+    Warning (13410): Pin "HEX1[1]" is stuck at GND File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 64
+    Warning (13410): Pin "HEX1[2]" is stuck at GND File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 64
+    Warning (13410): Pin "HEX1[3]" is stuck at GND File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 64
+    Warning (13410): Pin "HEX1[4]" is stuck at GND File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 64
+    Warning (13410): Pin "HEX1[5]" is stuck at GND File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 64
+    Warning (13410): Pin "HEX1[6]" is stuck at GND File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 64
+    Warning (13410): Pin "HEX1[7]" is stuck at GND File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 64
+    Warning (13410): Pin "HEX2[0]" is stuck at GND File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 67
+    Warning (13410): Pin "HEX2[1]" is stuck at GND File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 67
+    Warning (13410): Pin "HEX2[2]" is stuck at GND File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 67
+    Warning (13410): Pin "HEX2[3]" is stuck at GND File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 67
+    Warning (13410): Pin "HEX2[4]" is stuck at GND File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 67
+    Warning (13410): Pin "HEX2[5]" is stuck at GND File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 67
+    Warning (13410): Pin "HEX2[6]" is stuck at GND File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 67
+    Warning (13410): Pin "HEX2[7]" is stuck at GND File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 67
+    Warning (13410): Pin "HEX3[0]" is stuck at GND File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 70
+    Warning (13410): Pin "HEX3[1]" is stuck at GND File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 70
+    Warning (13410): Pin "HEX3[2]" is stuck at GND File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 70
+    Warning (13410): Pin "HEX3[3]" is stuck at GND File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 70
+    Warning (13410): Pin "HEX3[4]" is stuck at GND File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 70
+    Warning (13410): Pin "HEX3[5]" is stuck at GND File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 70
+    Warning (13410): Pin "HEX3[6]" is stuck at GND File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 70
+    Warning (13410): Pin "HEX3[7]" is stuck at GND File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 70
+    Warning (13410): Pin "HEX4[0]" is stuck at GND File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 73
+    Warning (13410): Pin "HEX4[1]" is stuck at GND File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 73
+    Warning (13410): Pin "HEX4[2]" is stuck at GND File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 73
+    Warning (13410): Pin "HEX4[3]" is stuck at GND File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 73
+    Warning (13410): Pin "HEX4[4]" is stuck at GND File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 73
+    Warning (13410): Pin "HEX4[5]" is stuck at GND File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 73
+    Warning (13410): Pin "HEX4[6]" is stuck at GND File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 73
+    Warning (13410): Pin "HEX4[7]" is stuck at GND File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 73
+    Warning (13410): Pin "HEX5[0]" is stuck at GND File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 76
+    Warning (13410): Pin "HEX5[1]" is stuck at GND File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 76
+    Warning (13410): Pin "HEX5[2]" is stuck at GND File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 76
+    Warning (13410): Pin "HEX5[3]" is stuck at GND File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 76
+    Warning (13410): Pin "HEX5[4]" is stuck at GND File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 76
+    Warning (13410): Pin "HEX5[5]" is stuck at GND File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 76
+    Warning (13410): Pin "HEX5[6]" is stuck at GND File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 76
+    Warning (13410): Pin "HEX5[7]" is stuck at GND File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 76
+    Warning (13410): Pin "LEDR[0]" is stuck at GND File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 86
+    Warning (13410): Pin "LEDR[1]" is stuck at GND File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 86
+    Warning (13410): Pin "LEDR[2]" is stuck at GND File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 86
+    Warning (13410): Pin "LEDR[3]" is stuck at GND File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 86
+    Warning (13410): Pin "LEDR[4]" is stuck at GND File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 86
+    Warning (13410): Pin "LEDR[5]" is stuck at GND File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 86
+    Warning (13410): Pin "LEDR[6]" is stuck at GND File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 86
+    Warning (13410): Pin "LEDR[7]" is stuck at GND File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 86
+    Warning (13410): Pin "LEDR[8]" is stuck at GND File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 86
+    Warning (13410): Pin "LEDR[9]" is stuck at GND File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 86
+    Warning (13410): Pin "GSENSOR_CS_N" is stuck at GND File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 105
+    Warning (13410): Pin "GSENSOR_SCLK" is stuck at GND File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 107
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 1 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file C:/RockShooterProject/output_files/RockShooter.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 12 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "ADC_CLK_10" File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 33
+    Warning (15610): No output dependent on input pin "MAX10_CLK2_50" File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 41
+    Warning (15610): No output dependent on input pin "KEY[1]" File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 81
+    Warning (15610): No output dependent on input pin "SW[2]" File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 91
+    Warning (15610): No output dependent on input pin "SW[3]" File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 91
+    Warning (15610): No output dependent on input pin "SW[4]" File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 91
+    Warning (15610): No output dependent on input pin "SW[5]" File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 91
+    Warning (15610): No output dependent on input pin "SW[6]" File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 91
+    Warning (15610): No output dependent on input pin "SW[7]" File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 91
+    Warning (15610): No output dependent on input pin "SW[8]" File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 91
+    Warning (15610): No output dependent on input pin "GSENSOR_INT[1]" File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 106
+    Warning (15610): No output dependent on input pin "GSENSOR_INT[2]" File: C:/RockShooterProject/DE10_LITE_Golden_Top.v Line: 106
+Info (21057): Implemented 1461 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 17 input pins
+    Info (21059): Implemented 97 output pins
+    Info (21060): Implemented 71 bidirectional pins
+    Info (21061): Implemented 1272 logic cells
+    Info (21062): Implemented 4 DSP elements
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 219 warnings
+    Info: Peak virtual memory: 4782 megabytes
+    Info: Processing ended: Thu Nov 28 19:48:21 2024
+    Info: Elapsed time: 00:00:08
+    Info: Total CPU time (on all processors): 00:00:10
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/RockShooterProject/output_files/RockShooter.map.smsg.
+
+
