@@ -1,11 +1,25 @@
-#RockBlaster Game (Verilog Project)
+# RockBlaster Game (Verilog Project)
 
-🎮 Purpose: Developed a digital RockBlaster game using Verilog for gameplay logic, controls, and visual output.
-🔧 Tech Stack: Verilog, FSMs, MUX, counters, and other digital logic design principles.
-💡 Key Features:
-🕹️ Game Logic: FSMs for states like idle, play, collision, and scoring.
-🔄 Dynamic Control: MUX for obstacle selection, adders for scoring, and clock dividers for timing.
-📊 VGA Display: Designed a VGA interface for real-time game visuals and dynamic updates.
-🖲️ Input Stability: Debouncing circuits for smooth user interaction.
-🚀 Skills Gained: Enhanced Verilog, VGA display design, FSMs, and FPGA debugging expertise.
-🌟 Outcome: Showcased digital logic design in creating an interactive, hardware-driven gaming system.
+🎮 **Purpose**  
+Developed a digital RockBlaster game using **Verilog** to implement gameplay logic, controls, and visual output.
+
+🔧 **Tech Stack**  
+- Verilog  
+- **Finite State Machines (FSMs)**  
+- **Multiplexers (MUX)**  
+- Counters and Adders  
+- VGA Display Interface  
+- Debouncing Circuits  
+
+💡 **Key Features**  
+- 🕹️ **Game Logic**: FSMs to manage states like idle, play, collision, and scoring.  
+- 🔄 **Dynamic Control**: MUX for obstacle selection, adders for scoring, and clock dividers for timing.  
+- 📊 **VGA Display**: Real-time game visuals using a hardware-driven VGA interface.  
+- 🖲️ **Input Stability**: Debouncing circuits for error-free user interactions.
+
+🚀 **Skills Gained**  
+- Advanced knowledge of Verilog and digital logic design principles.  
+- Expertise in FSMs, VGA display design, and FPGA debugging.  
+
+🌟 **Outcome**  
+Demonstrated the potential of hardware description languages in creating an interactive, hardware-accelerated gaming system.
